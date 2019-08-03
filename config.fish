@@ -4,6 +4,8 @@ cat ~/.config/fish/fish.txt
 set -x EDITOR nvim
 alias vim "nvim"
 
+set -x BROWSER chromium
+
 # Power grep.
 alias grep "grep --color --line-number"
 alias egrep "egrep --color --line-number"
@@ -47,3 +49,6 @@ set -x foundry_LICENSE 4101@mother
 # Developer tools from latest version.
 set -x PATH /workspace/carlos.perezlopez/dev/katana-3.0/Resources/DevTools/bin $PATH
 alias ik "FnKatanaInstaller.py"
+
+# Add cargo binaries to PATH.
+source ~/.cargo/env
