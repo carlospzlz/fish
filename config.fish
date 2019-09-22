@@ -56,4 +56,4 @@ source ~/.cargo/env
 # Move words backwards/forwards and kill them.
 bind \cy backward-word
 bind \co forward-word
-bind \cu kill-word
+bind \cu backward-kill-word
