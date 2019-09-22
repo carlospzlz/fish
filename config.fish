@@ -52,3 +52,8 @@ alias ik "FnKatanaInstaller.py"
 
 # Add cargo binaries to PATH.
 source ~/.cargo/env
+
+# Move words backwards/forwards and kill them.
+bind \cy backward-word
+bind \co forward-word
+bind \cu kill-word
