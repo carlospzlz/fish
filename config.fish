@@ -4,6 +4,8 @@ cat ~/.config/fish/fish.txt
 set -x EDITOR nvim
 alias vim "nvim"
 
+set -x BROWSER chromium
+
 # Power grep.
 alias grep "grep --color --line-number"
 alias egrep "egrep --color --line-number"
@@ -53,19 +55,15 @@ set -x FOUNDRY_LICENSE_FILE 30003@mother
 set -x foundry_LICENSE 4101@mother
 
 # Developer tools from latest version.
-#set -x PATH /workspace/carlos.perezlopez/dev/katana-3.0/Resources/DevTools/bin $PATH
-#alias ik "FnKatanaInstaller.py"
-#alias k "FnKatanaLauncher.py"
 alias mvc "python /workspace/carlos.perezlopez/tools/FnBuildTools/mvc"
 
-# Add custom scripts to PATH
+# Add custom scripts to PATH.
 set -x PATH /workspace/carlos.perezlopez/scripts $PATH
-
-# CMake compiled with not C++11 ABI.
-#alias cmake "/usr/bin/cmake3"
 
 # Add alacritty binary to PATH.
 source ~/.cargo/env
 
-# Make alacritty paly nice with new monitor's DPI
-#set -x WINIT_HIDPI_FACTOR 1.2
+# Move words backwards/forwards and kill them.
+bind \cy backward-word
+bind \co forward-word
+bind \cu backward-kill-word
