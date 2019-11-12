@@ -1,4 +1,4 @@
-cat ~/.config/fish/fish.txt
+# cat ~/.config/fish/fish.txt
 
 # Open vim and conquer the world.
 set -x EDITOR nvim
@@ -9,6 +9,11 @@ set -x BROWSER chromium
 # Power grep.
 alias grep "grep --color --line-number"
 alias egrep "egrep --color --line-number"
+
+# Fish greeting.
+function fish_greeting
+    fortune
+end
 
 # Fish prompt.
 function fish_prompt --description 'Write out the prompt'
@@ -51,7 +56,7 @@ set -x PATH /workspace/carlos.perezlopez/dev/katana-3.0/Resources/DevTools/bin $
 alias ik "FnKatanaInstaller.py"
 
 # Add cargo binaries to PATH.
-source ~/.cargo/env
+#source ~/.cargo/env
 
 # Move words backwards/forwards and kill them.
 bind \cy backward-word
