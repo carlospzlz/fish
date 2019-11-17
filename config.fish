@@ -48,12 +48,12 @@ end
 # KATANA
 
 # Foundry licenses.
-set -x FOUNDRY_LICENSE_FILE 30003@mother
-set -x foundry_LICENSE 4101@mother
+#set -x FOUNDRY_LICENSE_FILE 30003@mother
+#set -x foundry_LICENSE 4101@mother
 
 # Developer tools from latest version.
-set -x PATH /workspace/carlos.perezlopez/dev/katana-3.0/Resources/DevTools/bin $PATH
-alias ik "FnKatanaInstaller.py"
+#set -x PATH /workspace/carlos.perezlopez/dev/katana-3.0/Resources/DevTools/bin $PATH
+#alias ik "FnKatanaInstaller.py"
 
 # Add cargo binaries to PATH.
 #source ~/.cargo/env
@@ -62,3 +62,17 @@ alias ik "FnKatanaInstaller.py"
 bind \cy backward-word
 bind \co forward-word
 bind \cu backward-kill-word
+
+# USD
+set -x LD_LIBRARY_PATH /home/infcpl00/clones/USD/install/lib $LD_LIBRARY_PATH
+set -x LD_LIBRARY_PATH /home/infcpl00/clones/USD/install/lib64 $LD_LIBRARY_PATH
+set -x PYTHONPATH /home/infcpl00/clones/USD/install/lib/python $PYTHONPATH
+set -x PATH /home/infcpl00/clones/USD/install/bin $PATH
+
+# Embree
+set -x LD_LIBRARY_PATH /home/infcpl00/clones/embree/install/lib $LD_LIBRARY_PATH
+
+# 3Delight
+set -x LD_LIBRARY_PATH /home/infcpl00/foundry/3DelightNSI-1.6.6-Linux-x86_64/3delight/Linux-x86_64/lib $LD_LIBRARY_PATH
+set -x KATANA_RESOURCES /home/infcpl00/foundry/3DelightNSI-1.6.6-Linux-x86_64/3delight/Linux-x86_64/3DelightForKatana $KATANA_RESOURCES
+set -x PATH /home/infcpl00/foundry/3DelightNSI-1.6.6-Linux-x86_64/3delight/Linux-x86_64/bin $PATH
