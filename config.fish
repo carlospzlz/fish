@@ -63,7 +63,21 @@ set -x PATH /workspace/carlos.perezlopez/scripts $PATH
 # Add alacritty binary to PATH.
 source ~/.cargo/env
 
+# Add arc to PATH.
+set -x PATH /workspace/carlos.perezlopez/github/arcanist_install_path/arcanist/bin $PATH
+
 # Move words backwards/forwards and kill them.
 bind \cy backward-word
 bind \co forward-word
 bind \cu backward-kill-word
+
+# Reset environment variables to load shared libraries and python modules.
+set -x LD_LIBRARY_PATH /usr/local/lib64
+set -e PYTHONPATH
+
+# USD
+set -x LD_LIBRARY_PATH "/workspace/carlos.perezlopez/github/USD/install/lib:$LD_LIBRARY_PATH"
+set -x LD_LIBRARY_PATH "/workspace/carlos.perezlopez/github/USD/install/lib64:$LD_LIBRARY_PATH"
+set -x LD_LIBRARY_PATH "/workspace/carlos.perezlopez/github/USD/install/plugin/usd:$LD_LIBRARY_PATH"
+set -x PYTHONPATH /workspace/carlos.perezlopez/github/USD/install/lib/python $PYTHONPATH
+set -x PATH /workspace/carlos.perezlopez/github/USD/install/bin $PATH
