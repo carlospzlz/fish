@@ -45,34 +45,29 @@ function fvim --description "Open the fuzzy-found file in nvim"
    f; v
 end
 
-# KATANA
-
-# Foundry licenses.
-#set -x FOUNDRY_LICENSE_FILE 30003@mother
-#set -x foundry_LICENSE 4101@mother
-
-# Developer tools from latest version.
-#set -x PATH /workspace/carlos.perezlopez/dev/katana-3.0/Resources/DevTools/bin $PATH
-#alias ik "FnKatanaInstaller.py"
-
-# Add cargo binaries to PATH.
-#source ~/.cargo/env
-
 # Move words backwards/forwards and kill them.
 bind \cy backward-word
 bind \co forward-word
 bind \cu backward-kill-word
 
-# USD
-set -x LD_LIBRARY_PATH /home/infcpl00/clones/USD/install/lib $LD_LIBRARY_PATH
-set -x LD_LIBRARY_PATH /home/infcpl00/clones/USD/install/lib64 $LD_LIBRARY_PATH
-set -x PYTHONPATH /home/infcpl00/clones/USD/install/lib/python $PYTHONPATH
-set -x PATH /home/infcpl00/clones/USD/install/bin $PATH
+# USD Functional Environments -------------------------------------------------
 
-# Embree
-set -x LD_LIBRARY_PATH /home/infcpl00/clones/embree/install/lib $LD_LIBRARY_PATH
+function usdview --description 'Loads environment variables for USD'
+    set USD_ROOT "/home/infcpl00/clones/USD/install"
+	# libGLEW.so.2.0 lives in $USD_ROOT/lib64
+    set -x LD_LIBRARY_PATH "$USD_ROOT/lib64"
+    set -x PYTHONPATH "$USD_ROOT/lib/python"
+    $USD_ROOT/bin/usdview $argv
+end
 
-# 3Delight
-set -x LD_LIBRARY_PATH /home/infcpl00/foundry/3DelightNSI-1.6.6-Linux-x86_64/3delight/Linux-x86_64/lib $LD_LIBRARY_PATH
-set -x KATANA_RESOURCES /home/infcpl00/foundry/3DelightNSI-1.6.6-Linux-x86_64/3delight/Linux-x86_64/3DelightForKatana $KATANA_RESOURCES
-set -x PATH /home/infcpl00/foundry/3DelightNSI-1.6.6-Linux-x86_64/3delight/Linux-x86_64/bin $PATH
+# KATANA Functional Environments ----------------------------------------------
+
+function katana --description 'Launches Katana'
+    set 3DELIGHT_ROOT "/home/infcpl00/foundry/3delight-1.6.21/Linux-x86_64"
+    set KATANA_ROOT "/home/infcpl00/foundry/Katana3.5v1.010022b"
+	set -x LD_LIBRARY_PATH "$3DELIGHT_ROOT/lib"
+    set -x PATH "$3DELIGHT_ROOT/bin $PATH"
+	set -x KATANA_RESOURCES "$3DELIGHT_ROOT/3DelightForKatana:$KATANA_RESOURCES"
+	set -x KATANA_RESOURCES "$KATANA_ROOT/plugins/Resources/Examples:$KATANA_RESOURCES"
+	$KATANA_ROOT/katana $argv
+end
