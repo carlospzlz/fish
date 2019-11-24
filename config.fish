@@ -66,8 +66,9 @@ function katana --description 'Launches Katana'
     set 3DELIGHT_ROOT "/home/infcpl00/foundry/3delight-1.6.21/Linux-x86_64"
     set KATANA_ROOT "/home/infcpl00/foundry/Katana3.5v1.010022b"
 	set -x LD_LIBRARY_PATH "$3DELIGHT_ROOT/lib"
-    set -x PATH "$3DELIGHT_ROOT/bin $PATH"
+    set -x PATH "$PATH:$3DELIGHT_ROOT/bin"
 	set -x KATANA_RESOURCES "$3DELIGHT_ROOT/3DelightForKatana:$KATANA_RESOURCES"
 	set -x KATANA_RESOURCES "$KATANA_ROOT/plugins/Resources/Examples:$KATANA_RESOURCES"
 	$KATANA_ROOT/katana $argv
+	set -e PATH[-1]
 end
