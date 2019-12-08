@@ -54,7 +54,7 @@ bind \cu backward-kill-word
 
 function usdview --description 'Loads environment variables for USD'
     set USD_ROOT "/home/infcpl00/clones/USD/install"
-	# libGLEW.so.2.0 lives in $USD_ROOT/lib64
+    # libGLEW.so.2.0 lives in $USD_ROOT/lib64
     set -x LD_LIBRARY_PATH "$USD_ROOT/lib64"
     set -x PYTHONPATH "$USD_ROOT/lib/python"
     $USD_ROOT/bin/usdview $argv
@@ -63,12 +63,18 @@ end
 # KATANA Functional Environments ----------------------------------------------
 
 function katana --description 'Launches Katana'
-    set 3DELIGHT_ROOT "/home/infcpl00/foundry/3delight-1.6.21/Linux-x86_64"
     set KATANA_ROOT "/home/infcpl00/foundry/Katana3.5v1.010022b"
-	set -x LD_LIBRARY_PATH "$3DELIGHT_ROOT/lib"
+    # 3Delight
+    set 3DELIGHT_ROOT "/home/infcpl00/foundry/3delight-1.6.21/Linux-x86_64"
+    set -x LD_LIBRARY_PATH "$3DELIGHT_ROOT/lib"
     set -x PATH "$PATH:$3DELIGHT_ROOT/bin"
-	set -x KATANA_RESOURCES "$3DELIGHT_ROOT/3DelightForKatana:$KATANA_RESOURCES"
-	set -x KATANA_RESOURCES "$KATANA_ROOT/plugins/Resources/Examples:$KATANA_RESOURCES"
-	$KATANA_ROOT/katana $argv
-	set -e PATH[-1]
+    set -x KATANA_RESOURCES "$3DELIGHT_ROOT/3DelightForKatana:$KATANA_RESOURCES"
+    # Pxr plug-in shipped with Katana
+    set -x PYTHONPATH "$KATANA_ROOT/bin/python/fnUsd"
+    set -x KATANA_RESOURCES "$KATANA_ROOT/plugins/Resources/Usd/plugin:$KATANA_RESOURCES"
+    set -x LD_LIBRARY_PATH "$KATANA_ROOT/plugins/Resources/Usd/lib:$LD_LIBRARY_PATH"
+    # Examples
+    set -x KATANA_RESOURCES "$KATANA_ROOT/plugins/Resources/Examples:$KATANA_RESOURCES"
+    $KATANA_ROOT/katana $argv
+    set -e PATH[-1]
 end
