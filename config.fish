@@ -78,3 +78,10 @@ function katana --description 'Launches Katana'
     $KATANA_ROOT/katana $argv
     set -e PATH[-1]
 end
+
+# Apple USDZ tools
+function usdzconvert
+    set USD_ROOT "/home/infcpl00/clones/USD/install"
+    set -x PYTHONPATH "$USD_ROOT/lib/python"
+	/home/infcpl00/tools/usdpython-0.62/usdzconvert/usdzconvert $argv
+end
