@@ -50,6 +50,11 @@ alias dclock="/workspace/carlos.perezlopez/github/dclock/dclock \
 
 # KATANA
 
+# Perforce
+set -x P4PORT perforce1:1669
+set -x P4USER carlos.perezlopez
+set -x P4CONFIG .p4config
+
 # Foundry licenses.
 set -x FOUNDRY_LICENSE_FILE 30003@mother
 set -x foundry_LICENSE 4101@mother
@@ -81,3 +86,6 @@ set -x LD_LIBRARY_PATH "/workspace/carlos.perezlopez/github/USD/install/lib64:$L
 set -x LD_LIBRARY_PATH "/workspace/carlos.perezlopez/github/USD/install/plugin/usd:$LD_LIBRARY_PATH"
 set -x PYTHONPATH /workspace/carlos.perezlopez/github/USD/install/lib/python $PYTHONPATH
 set -x PATH /workspace/carlos.perezlopez/github/USD/install/bin $PATH
+
+# USD local binaries the path.
+set -x PATH /home/cpl/.local/bin $PATH
