@@ -18,9 +18,9 @@ end
 # Fish prompt.
 function fish_prompt --description 'Write out the prompt'
    if not set -q _hostname
-       set _hostname (string sub -l 3 (hostname))
+       set host_short (string sub -l 3 (hostname))
 	   # Light Slate Gray
-	   set -g _hostname (set_color --bold 778899)"$_hostname"(set_color normal)
+	   set -g _hostname (set_color --bold 778899)"$host_short"(set_color normal)
    end
    set current_branch (git branch ^/dev/null | /usr/bin/grep \* | sed 's/* //')
    set current_branch (set_color brown)"[$current_branch]"(set_color normal)
