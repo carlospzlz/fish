@@ -17,17 +17,16 @@ end
 
 # Fish prompt.
 function fish_prompt --description 'Write out the prompt'
-    if not set -q g_user
-        set -g g_user (string sub -l 3 (whoami))
-    end
-    if not set -q g_hostname
-        set -g g_hostname (string sub -l 3 (hostname))
-    end
-    set classic_prompt (set_color --bold 778899)"$g_user@$g_hostname"(set_color normal)
+	if not set -q g_classic_prompt
+        set user (string sub -l 3 (whoami))
+        set hostname_ (string sub -l 3 (hostname))
+		set prompt "$user@$hostname_"
+        set -g g_classic_prompt (set_color --bold 778899)"$prompt"(set_color normal)
+	end
     set current_branch (git branch ^/dev/null | /usr/bin/grep \* | sed 's/* //')
     set current_branch (set_color brown)"[$current_branch]"(set_color normal)
     set fish_prompt_pwd (set_color "$fish_color_cwd")(prompt_pwd)(set_color normal)
-    printf '%s %s %s $ ' "$classic_prompt" "$current_branch" "$fish_prompt_pwd"
+    printf '%s %s %s $ ' "$g_classic_prompt" "$current_branch" "$fish_prompt_pwd"
 end
 
 # fzf alias to store fuzzy-found file in environment variable.
