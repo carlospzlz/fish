@@ -32,24 +32,24 @@ end
 
 # fzf alias to store fuzzy-found file in environment variable.
 function f --description "Open fzf and saves fuzzy-found file in environment"
-   set found_file (fzf --preview 'highlight -O ansi {}')
-   if [ $found_file ]
-      set -g file $found_file
-   end
+    set found_file (fzf --preview 'highlight -O ansi {}')
+    if [ $found_file ]
+        set -g file $found_file
+    end
 end
 
 # nvim alias to open the last fuzzy-found file.
 function v --description "Open in nvim the last fuzzy-found file"
-   if [ $file ]
-      nvim $file
-   else
-      echo "no file"
-   end
+    if [ $file ]
+        nvim $file
+    else
+        echo "no file"
+    end
 end
 
 # Combination of fzf alias and nvim alias.
 function fvim --description "Open the fuzzy-found file in nvim"
-   f; v
+    f; v
 end
 
 # Move words backwards/forwards and kill them.
