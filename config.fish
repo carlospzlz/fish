@@ -69,9 +69,9 @@ end
 # KATANA Functional Environments ----------------------------------------------
 
 function katana --description 'Launches Katana'
-    set KATANA_ROOT "/home/infcpl00/foundry/Katana3.5v1.010022b"
+    set KATANA_ROOT "/home/infcpl00/foundry/Katana3.6v1.010009b"
     # 3Delight
-    set 3DELIGHT_ROOT "/home/infcpl00/foundry/3delight-1.6.21/Linux-x86_64"
+    set 3DELIGHT_ROOT "/home/infcpl00/foundry/3DelightNSI-2.0.1-Linux-x86_64/3delight/Linux-x86_64"
     set -x LD_LIBRARY_PATH "$3DELIGHT_ROOT/lib"
     set -x PATH "$PATH:$3DELIGHT_ROOT/bin"
     set -x KATANA_RESOURCES "$3DELIGHT_ROOT/3DelightForKatana:$KATANA_RESOURCES"
