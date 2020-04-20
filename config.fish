@@ -59,7 +59,7 @@ bind \cu backward-kill-word
 # USD Functional Environments -------------------------------------------------
 
 function usdview --description 'Loads environment variables for USD'
-    set USD_ROOT "/home/infcpl00/clones/USD/install"
+    set USD_ROOT "/usr/local/USD"
     # libGLEW.so.2.0 lives in $USD_ROOT/lib64
     set -x LD_LIBRARY_PATH "$USD_ROOT/lib64"
     set -x PYTHONPATH "$USD_ROOT/lib/python"
