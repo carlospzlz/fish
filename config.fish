@@ -1,7 +1,7 @@
 # cat ~/.config/fish/fish.txt
 
 # Beautiful colors
-set -x TERM screen-256color
+set -x TERM xterm-256color
 
 # Open vim and conquer the world.
 set -x EDITOR nvim
