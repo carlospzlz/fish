@@ -91,7 +91,7 @@ end
 
 # Apple USDZ tools
 function usdzconvert
-    set USD_ROOT "/home/infcpl00/clones/USD/install"
-    set -x PYTHONPATH "$USD_ROOT/lib/python"
-	/home/infcpl00/tools/usdpython-0.62/usdzconvert/usdzconvert $argv
+    set USD_ROOT "/usr/local/USD"
+    set -x PYTHONPATH "$USD_ROOT/lib/python:/home/infcpl00/usdpython-0.62/usdzconvert"
+	python2 /home/infcpl00/usdpython-0.62/usdzconvert/usdzconvert $argv
 end
