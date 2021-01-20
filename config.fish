@@ -54,11 +54,6 @@ function fvim --description "Open the fuzzy-found file in nvim"
     f; v
 end
 
-# Move words backwards/forwards and kill them.
-bind \cy backward-word
-bind \co forward-word
-bind \cu backward-kill-word
-
 # USD Functional Environments -------------------------------------------------
 
 function usdview --description 'Loads environment variables for USD'
