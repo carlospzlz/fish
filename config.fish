@@ -90,3 +90,11 @@ function usdzconvert
     set -x PYTHONPATH "$USD_ROOT/lib/python:/home/infcpl00/usdpython-0.62/usdzconvert"
 	python2 /home/infcpl00/usdpython-0.62/usdzconvert/usdzconvert $argv
 end
+
+# SLAMcore Requirements -------------------------------------------------------
+
+# It took one full day to find out that I needed to set this variable (and not
+# LD_LIBRARY_PAT). This will make gcc to tell ld that we want to look first
+# in the locally installed libraries to link against (to give precedence to the
+# SLAMcore local version of OpenCV -3.4- rather than the system one -4.5-)
+set -x LIBRARY_PATH /usr/local/lib
