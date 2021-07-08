@@ -26,7 +26,7 @@ function fish_prompt --description 'Write out the prompt'
 		set prompt "$user@$hostname_"
         set -g g_classic_prompt (set_color --bold 778899)"$prompt"(set_color normal)
 	end
-    set current_branch (git branch ^/dev/null | /usr/bin/grep \* | sed 's/* //')
+    set current_branch (git branch 2>/dev/null | /usr/bin/grep \* | sed 's/* //')
     set current_branch (set_color brown)"[$current_branch]"(set_color normal)
     set fish_prompt_pwd (set_color "$fish_color_cwd")(prompt_pwd)(set_color normal)
     printf '%s %s %s $ ' "$g_classic_prompt" "$current_branch" "$fish_prompt_pwd"
